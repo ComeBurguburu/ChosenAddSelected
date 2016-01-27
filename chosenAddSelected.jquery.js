@@ -18,15 +18,15 @@
             } else if ($(selectTarget).prop('class') !== "") {
                 tableName = $(selectTarget).prop("class");
             } else{
-			      }
+            	tableName = "";
+	    }
 		
             $.ajax({
                 type: "GET",
                 url: "get/setOptions.php",
                 data: {
                     value: value,
-                    table: tableName,
-                    customer: getCustomer()
+                    table: tableName
                 },
                 success: function (result) {
                     $(selectTarget).html(result);
