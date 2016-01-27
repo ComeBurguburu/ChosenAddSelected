@@ -55,8 +55,6 @@
         };
     $.fn.ChosenAddSelected = function () {
         chosenAddSelectOption($(this));
-		$(this).on("addSelected",function(){init($(this));console.warn($(this).parent().html());alert("up to date")});
-
         getServerData();
         $(this).on("chosen:no_results", getServerData);
     };
