@@ -23,7 +23,7 @@
 		
             $.ajax({
                 type: "GET",
-                url: "get/setOptions.php",
+                url: "setOptions.php",
                 data: {
                     value: value,
                     table: tableName
@@ -36,7 +36,7 @@
 						$(selectTarget).trigger("change");
 					}
                 },
-                fail: function (error) {alert(error); }
+                error: function (error) {alert(error.responseText); }
             });
             return selectTarget;
         },
