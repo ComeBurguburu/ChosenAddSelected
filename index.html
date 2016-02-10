@@ -14,12 +14,15 @@
            <li>"test"</li>
            <li>Something else</li>
        </ul>
+       <i>Example didn't work if the server script is not found or if this web page is not hosted</i>
+       <div>
         <select id="myselect" multiple>
             <option>test</option>
         </select>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://harvesthq.github.io/chosen/chosen.jquery.js"></script>
-    <script src="chosenAddSelected.jquery.js"></script>
+    <script src="chosenAddSelected.jquery.min.js"></script>
     <script>
         $("#myselect").chosen({width: "200px",max_selected_options: 1}).ChosenAddSelected();
     </script>
