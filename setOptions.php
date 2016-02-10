@@ -1,21 +1,31 @@
 <?php
 include('base.php');
-    //nom de la table (id , class)
+if(isset($_GET["table"])){
     $table=$_GET["table"];
-    //valeur entrée par l'utilisateur
-    $value_in=$_GET["value"];
-    //script d'insertion en base INSERT INTO..
-
-$base->exec('INSERT INTO produit (droit) values ("'.$value_in.'")') or die(print_r($base->errorInfo())); 
-$response = $base->query('SELECT droit,id FROM produit ORDER BY id ASC') or die(print_r($base->errorInfo())); 
- 
-$uniq=Array();
-    while($data = $response->fetch() ) 
-  {
-        if(in_array($data["droit"],$uniq)){
-            continue;
+    switch($table){
+        case "table1_":
+            $key="name";
+            $id="name_id";
+        break;
+        default:
+            die("<option>Error</option>");
+        break;
         }
-        $uniq[]=$data['droit'];
-      echo "<option value=\"".$data["id"]."\"".($data["droit"]==$value_in?"selected":"").">".$data["droit"]."</option>";
-  }
+}
+if(isset($_GET["value"])){
+    $value_in=$_GET["value"];
+    $base->exec("INSERT INTO $table ($key) values (\"".$value_in."\")") or die(print_r($base->errorInfo())); 
+}else{
+    $value_in="default_value";
+}
+$response = $base->query("SELECT $id,$key FROM $table ORDER BY $id ASC") or die(print_r($base->errorInfo())); 
+$uniq=Array();
+while($data = $response->fetch() ) 
+{
+    if(in_array($data[$key],$uniq)){
+        continue;
+    }
+    $uniq[]=$data[$key];
+    echo "<option value=\"".$data[$id]."\"".($data[$key]==$value_in?"selected":"").">".$data[$key]."</option>";
+}
 ?>

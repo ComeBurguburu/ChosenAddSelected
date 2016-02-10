@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chosen Add Selected | Demo</title>
+    <link rel="stylesheet" href="https://harvesthq.github.io/chosen/chosen.css">
+</head>
+
+<body>
+    <h1>Chosen Add Selected</h1>
+    <h3>try typing</h3>
+       <ul>
+           <li>"test"</li>
+           <li>Something else</li>
+       </ul>
+        <select id="myselect" multiple>
+            <option>test</option>
+        </select>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://harvesthq.github.io/chosen/chosen.jquery.js"></script>
+    <script src="chosenAddSelected.jquery.js"></script>
+    <script>
+        $("#myselect").chosen({width: "200px",max_selected_options: 1}).ChosenAddSelected();
+    </script>
+</body>
+</html>
